@@ -1,38 +1,30 @@
-import Nav from "./components/Nav.jsx";
-import Hero from "./components/Hero.jsx";
-import WhatIsStoneUnion from "./components/WhatIsStoneUnion.jsx";
-import Market from "./components/Market.jsx";
-import Program from "./components/Program.jsx";
-import ThirdSpace from "./components/ThirdSpace.jsx";
-import GallerySection from "./components/GallerySection.jsx";
-import Studio from "./components/Studio.jsx";
-import Operations from "./components/Operations.jsx";
-import Sustainability from "./components/Sustainability.jsx";
-import ConceptGallery from "./components/ConceptGallery.jsx";
-import Team from "./components/Team.jsx";
-import Cta from "./components/Cta.jsx";
-import Footer from "./components/Footer.jsx";
-
 function App() {
   return (
-    <>
-      <Nav />
-      <Hero />
-      <main>
-        <WhatIsStoneUnion />
-        <Market />
-        <Program />
-        <ThirdSpace />
-        <GallerySection />
-        <Studio />
-        <Operations />
-        <Sustainability />
-        <ConceptGallery />
-        <Team />
-        <Cta />
-      </main>
-      <Footer />
-    </>
+    <main className="coming-soon">
+      <div className="coming-soon-media">
+        <img
+          src={`${import.meta.env.BASE_URL}images/hero-storefront.jpg`}
+          alt=""
+          aria-hidden="true"
+        />
+        <div className="coming-soon-scrim" />
+      </div>
+
+      <div className="coming-soon-content">
+        <p className="eyebrow">A Stone Arts Destination · New York City</p>
+        <h1 className="coming-soon-title">
+          Stone <em>Union</em>
+        </h1>
+        <img
+          className="coming-soon-mark"
+          src={`${import.meta.env.BASE_URL}images/tools-icon-2.jpg`}
+          alt=""
+          aria-hidden="true"
+        />
+        <p className="coming-soon-tag">Studios&nbsp;+&nbsp;Gallery&nbsp;+&nbsp;Café</p>
+        <p className="tag coming-soon-badge">Coming in 2027</p>
+      </div>
+    </main>
   );
 }
 
