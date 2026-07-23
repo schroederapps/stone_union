@@ -31,7 +31,7 @@ export default function Team() {
 
         <div className="founder-block">
           <Reveal delay={80} className="founder-photo">
-            <img src="/images/founder-nick-leavens.jpg" alt="Portrait of Nick Leavens, founder of Stone Union, standing in a stone-sculpting studio." />
+            <img src={`${import.meta.env.BASE_URL}images/founder-nick-leavens.jpg`} alt="Portrait of Nick Leavens, founder of Stone Union, standing in a stone-sculpting studio." />
           </Reveal>
           <Reveal delay={140} className="founder-bio">
             <h3 className="founder-name">Nick Leavens <span className="dim founder-role">— Founder</span></h3>

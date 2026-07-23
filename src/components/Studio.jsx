@@ -11,7 +11,7 @@ export default function Studio() {
   return (
     <section id="studio" className="studio">
       <div className="studio-media">
-        <img src="/images/carving-hands.jpg" alt="A sculptor's hands guiding a chisel with a mallet into a block of stone on a studio workbench, dust extraction hoses visible in the background." />
+        <img src={`${import.meta.env.BASE_URL}images/carving-hands.jpg`} alt="A sculptor's hands guiding a chisel with a mallet into a block of stone on a studio workbench, dust extraction hoses visible in the background." />
       </div>
       <div className="studio-text">
         <Reveal>

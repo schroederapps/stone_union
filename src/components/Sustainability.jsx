@@ -52,7 +52,7 @@ export default function Sustainability() {
 
         <Reveal delay={100}>
           <figure className="sustain-figure">
-            <img src="/images/spiral-jetty.jpg" alt="Robert Smithson, Spiral Jetty, 1970, a large earthwork sculpture coiling out into water." />
+            <img src={`${import.meta.env.BASE_URL}images/spiral-jetty.jpg`} alt="Robert Smithson, Spiral Jetty, 1970, a large earthwork sculpture coiling out into water." />
             <figcaption className="dim">Robert Smithson, <em>Spiral Jetty</em>, 1970</figcaption>
           </figure>
         </Reveal>

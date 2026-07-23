@@ -42,7 +42,7 @@ export default function Operations() {
         <div className="grid-3 ops-grid">
           {CARDS.map((c, i) => (
             <Reveal key={c.title} delay={i * 100} className="plaque ops-card">
-              <img src="/images/rocks-icon.jpg" alt="" className="ops-icon" />
+              <img src={`${import.meta.env.BASE_URL}images/rocks-icon.jpg`} alt="" className="ops-icon" />
               <h3 className="ops-title">{c.title}</h3>
               <ul>
                 {c.items.map((it) => (

@@ -5,7 +5,7 @@ export default function Cta() {
     <section id="contact" className="section-pad cta-section">
       <div className="wrap">
         <Reveal className="plaque cta-plaque">
-          <img src="/images/tools-icon.jpg" alt="" className="cta-mark" />
+          <img src={`${import.meta.env.BASE_URL}images/tools-icon.jpg`} alt="" className="cta-mark" />
           <p className="eyebrow" style={{ justifyContent: "center" }}>Get Involved</p>
           <h2 className="headline cta-headline">Join us in building Stone Union</h2>
           <p className="lede cta-lede">

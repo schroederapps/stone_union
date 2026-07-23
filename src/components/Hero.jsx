@@ -2,7 +2,7 @@ export default function Hero() {
   return (
     <header id="top" className="hero">
       <div className="hero-media">
-        <img src="/images/hero-storefront.jpg" alt="Concept rendering of the Stone Union storefront, a warm brick facade opening onto a Brooklyn sidewalk with a studio, gallery shelves, and café visible inside." />
+        <img src={`${import.meta.env.BASE_URL}images/hero-storefront.jpg`} alt="Concept rendering of the Stone Union storefront, a warm brick facade opening onto a Brooklyn sidewalk with a studio, gallery shelves, and café visible inside." />
         <div className="hero-scrim" />
       </div>
 

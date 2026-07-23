@@ -29,7 +29,7 @@ export default function GallerySection() {
 
         <Reveal delay={80} className="program-media gallery-media">
           <figure>
-            <img src="/images/noguchi.jpg" alt="Isamu Noguchi, Narrow Gate, 1981, a tall carved basalt sculpture with contrasting rough and finished textures." />
+            <img src={`${import.meta.env.BASE_URL}images/noguchi.jpg`} alt="Isamu Noguchi, Narrow Gate, 1981, a tall carved basalt sculpture with contrasting rough and finished textures." />
             <figcaption className="dim">Isamu Noguchi, <em>Narrow Gate</em>, 1981 — basalt</figcaption>
           </figure>
         </Reveal>

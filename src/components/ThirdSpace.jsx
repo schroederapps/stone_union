@@ -4,7 +4,7 @@ export default function ThirdSpace() {
   return (
     <section id="third-space" className="third-space">
       <div className="third-space-media">
-        <img src="/images/studio-table.jpg" alt="Concept rendering of the Stone Union studio, sculptors gathered around a long communal work table beneath a skylight, surrounded by shelves of tools and finished stone pieces." />
+        <img src={`${import.meta.env.BASE_URL}images/studio-table.jpg`} alt="Concept rendering of the Stone Union studio, sculptors gathered around a long communal work table beneath a skylight, surrounded by shelves of tools and finished stone pieces." />
         <div className="hero-scrim" />
         <div className="wrap third-space-caption">
           <Reveal>
@@ -31,7 +31,7 @@ export default function ThirdSpace() {
 
           <Reveal delay={120}>
             <figure className="third-space-figure">
-              <img src="/images/henry-moore.jpg" alt="Henry Moore, Recumbent Figure, 1938, carved in green Hornton stone." />
+              <img src={`${import.meta.env.BASE_URL}images/henry-moore.jpg`} alt="Henry Moore, Recumbent Figure, 1938, carved in green Hornton stone." />
               <figcaption className="dim">Henry Moore, <em>Recumbent Figure</em>, 1938 — green Hornton stone</figcaption>
             </figure>
           </Reveal>

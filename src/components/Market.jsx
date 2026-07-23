@@ -2,7 +2,11 @@ import Reveal from "./Reveal.jsx";
 
 export default function Market() {
   return (
-    <section id="market" className="section-pad market">
+    <section
+      id="market"
+      className="section-pad market"
+      style={{ "--crack-url": `url(${import.meta.env.BASE_URL}images/crack-texture.jpg)` }}
+    >
       <div className="wrap">
         <Reveal>
           <p className="eyebrow">The Market</p>

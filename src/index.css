@@ -501,7 +501,7 @@ button:focus-visible {
   background: var(--basalt-900);
   border-top: 1px solid var(--stone-line-soft);
   border-bottom: 1px solid var(--stone-line-soft);
-  background-image: url("/images/crack-texture.jpg");
+  background-image: var(--crack-url);
   background-repeat: no-repeat;
   background-position: right -80px top 40px;
   background-size: 320px auto;

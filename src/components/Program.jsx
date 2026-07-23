@@ -34,7 +34,7 @@ export default function Program() {
       <div className="wrap program-layout">
         <Reveal className="program-media">
           <figure>
-            <img src="/images/sculpture-swingstone.jpg" alt="Swingstone, a sculpture by Peter Brooke-Ball in slate and ash on sycamore, showing a dark stone teardrop suspended within a curved wooden arch." />
+            <img src={`${import.meta.env.BASE_URL}images/sculpture-swingstone.jpg`} alt="Swingstone, a sculpture by Peter Brooke-Ball in slate and ash on sycamore, showing a dark stone teardrop suspended within a curved wooden arch." />
             <figcaption className="dim">Peter Brooke-Ball, <em>Swingstone</em> — slate, ash on sycamore</figcaption>
           </figure>
         </Reveal>
