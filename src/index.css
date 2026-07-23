@@ -1,0 +1,1062 @@
+/* ---------------------------------------------------------------
+   Stone Union — design tokens
+   A dark quarry gallery: travertine ink on basalt, one oxide accent.
+   --------------------------------------------------------------- */
+:root {
+  --basalt-950: #0e0d0b;
+  --basalt-900: #17140f;
+  --basalt-850: #221d16;
+  --stone-line: #3a3327;
+  --stone-line-soft: #2a251c;
+  --travertine: #e7ded0;
+  --travertine-dim: #a99e8c;
+  --chalk: #f8f4ea;
+  --oxide: #c1603a;
+  --oxide-bright: #e07a4f;
+  --oxide-dim: #7c4128;
+  --quarry: #8a9678;
+
+  --font-display: "Fraunces", "Iowan Old Style", serif;
+  --font-body: "Archivo", -apple-system, "Segoe UI", sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", monospace;
+
+  --container: 1180px;
+  --gutter: clamp(1.25rem, 5vw, 4rem);
+
+  color-scheme: dark;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  background: var(--basalt-950);
+}
+
+body {
+  margin: 0;
+  background: var(--basalt-950);
+  color: var(--travertine);
+  font-family: var(--font-body);
+  font-size: 16.5px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  color: inherit;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  color: var(--chalk);
+  font-weight: 480;
+  margin: 0;
+  letter-spacing: -0.01em;
+}
+
+p {
+  margin: 0;
+}
+
+button {
+  font-family: inherit;
+}
+
+/* faint stone-grain overlay across the whole page */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 999;
+  opacity: 0.05;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='120' height='120'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+}
+
+/* ---------------------------------------------------------------
+   Layout utilities
+   --------------------------------------------------------------- */
+.wrap {
+  width: 100%;
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+}
+
+section {
+  position: relative;
+}
+
+.section-pad {
+  padding: clamp(4rem, 9vw, 7.5rem) 0;
+}
+
+.rule {
+  border: none;
+  border-top: 1px solid var(--stone-line);
+  margin: 0;
+}
+
+.eyebrow {
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  color: var(--oxide-bright);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6em;
+  margin-bottom: 1.1rem;
+}
+
+.eyebrow::before {
+  content: "";
+  width: 1.6em;
+  height: 1px;
+  background: var(--oxide-bright);
+  display: inline-block;
+}
+
+h2.headline {
+  font-size: clamp(2rem, 4.2vw, 3.1rem);
+  line-height: 1.08;
+  max-width: 18ch;
+}
+
+.lede {
+  font-size: clamp(1.05rem, 1.6vw, 1.25rem);
+  line-height: 1.65;
+  color: var(--travertine);
+  max-width: 62ch;
+}
+
+.dim {
+  color: var(--travertine-dim);
+}
+
+.mono-stat {
+  font-family: var(--font-mono);
+  color: var(--chalk);
+  font-weight: 500;
+  font-size: clamp(1.8rem, 3.4vw, 2.6rem);
+  letter-spacing: -0.01em;
+  line-height: 1;
+}
+
+.tag {
+  display: inline-block;
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--quarry);
+  border: 1px solid var(--stone-line);
+  border-radius: 999px;
+  padding: 0.42em 0.95em;
+}
+
+/* the "plaque" — engraved-tablet border, echoes the deck's bordered title box */
+.plaque {
+  border: 1px solid var(--stone-line);
+  padding: clamp(1.5rem, 3vw, 2.5rem);
+  position: relative;
+}
+
+.plaque::before,
+.plaque::after {
+  content: "";
+  position: absolute;
+  width: 7px;
+  height: 7px;
+  border: 1px solid var(--oxide-dim);
+}
+.plaque::before { top: -1px; left: -1px; border-width: 1px 0 0 1px; }
+.plaque::after { bottom: -1px; right: -1px; border-width: 0 1px 1px 0; }
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6em;
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  text-decoration: none;
+  padding: 0.95em 1.7em;
+  border: 1px solid var(--oxide);
+  color: var(--chalk);
+  background: var(--oxide-dim);
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.15s ease, border-color 0.2s ease;
+}
+
+.btn:hover {
+  background: var(--oxide);
+  border-color: var(--oxide-bright);
+}
+
+.btn:active {
+  transform: translateY(1px);
+}
+
+.btn-ghost {
+  background: transparent;
+  border: 1px solid var(--stone-line);
+  color: var(--travertine);
+}
+
+.btn-ghost:hover {
+  border-color: var(--travertine-dim);
+  background: var(--basalt-850);
+}
+
+.btn:focus-visible,
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--oxide-bright);
+  outline-offset: 3px;
+}
+
+.grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(2rem, 5vw, 4.5rem);
+}
+
+.grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(1.25rem, 3vw, 2rem);
+}
+
+@media (max-width: 860px) {
+  .grid-2, .grid-3 {
+    grid-template-columns: 1fr;
+  }
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+/* ---------------------------------------------------------------
+   Venn diagram — signature graphic
+   --------------------------------------------------------------- */
+.venn {
+  width: 100%;
+  max-width: 620px;
+  margin: 0 auto;
+}
+
+.venn-circle {
+  fill: none;
+  stroke: var(--oxide);
+  stroke-width: 1.4;
+  stroke-dasharray: 1;
+  transition: stroke-dashoffset 1.4s cubic-bezier(0.4, 0, 0.2, 1);
+  mix-blend-mode: screen;
+}
+
+.venn-label {
+  transition: opacity 0.8s ease;
+}
+
+.venn-num {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  fill: var(--oxide-bright);
+}
+
+.venn-title {
+  font-family: var(--font-display);
+  font-size: 20px;
+  fill: var(--chalk);
+}
+
+.venn-sub {
+  font-family: var(--font-body);
+  font-size: 11px;
+  fill: var(--travertine-dim);
+  letter-spacing: 0.02em;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .venn-circle {
+    stroke-dashoffset: 0 !important;
+    transition: none;
+  }
+  .venn-label {
+    opacity: 1 !important;
+    transition: none;
+  }
+}
+
+@media (max-width: 640px) {
+  .venn-sub { display: none; }
+  .venn-title { font-size: 25px; }
+  .venn-num { font-size: 17px; }
+}
+
+/* ---------------------------------------------------------------
+   Nav
+   --------------------------------------------------------------- */
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  border-bottom: 1px solid transparent;
+  transition: background 0.3s ease, border-color 0.3s ease;
+}
+
+.nav-scrolled {
+  background: rgba(14, 13, 11, 0.86);
+  backdrop-filter: blur(10px);
+  border-bottom-color: var(--stone-line);
+}
+
+.nav-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 1.1rem;
+  padding-bottom: 1.1rem;
+  gap: 1rem;
+}
+
+.nav-mark {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  color: var(--chalk);
+  text-decoration: none;
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+}
+
+.nav-mid {
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  font-weight: 600;
+  display: none;
+}
+
+.nav-cta {
+  padding: 0.6em 1.2em;
+  font-size: 0.72rem;
+}
+
+@media (min-width: 720px) {
+  .nav-mid { display: inline; }
+}
+
+/* ---------------------------------------------------------------
+   Hero
+   --------------------------------------------------------------- */
+.hero {
+  position: relative;
+  z-index: 0;
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  overflow: hidden;
+}
+
+.hero-media {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+}
+
+.hero-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 40%;
+  filter: grayscale(0.25) contrast(1.05);
+}
+
+.hero-scrim {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgba(14,13,11,0.55) 0%, rgba(14,13,11,0.35) 30%, rgba(14,13,11,0.88) 78%, #0e0d0b 100%);
+}
+
+.hero-content {
+  padding-top: 8rem;
+  padding-bottom: 2.5rem;
+}
+
+.hero-title {
+  font-size: clamp(3.4rem, 11vw, 8rem);
+  line-height: 0.94;
+  color: var(--chalk);
+  font-weight: 380;
+  letter-spacing: -0.01em;
+}
+
+.hero-title em {
+  font-style: italic;
+  font-weight: 340;
+  color: var(--oxide-bright);
+}
+
+.hero-tag {
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.24em;
+  color: var(--travertine);
+  margin-top: 1.1rem;
+}
+
+.hero-lede {
+  margin-top: 1.5rem;
+  color: var(--travertine);
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 2.5rem;
+}
+
+.hero-foot {
+  border-top: 1px solid var(--stone-line-soft);
+  padding: 1.1rem 0;
+}
+
+.hero-foot-inner {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--travertine-dim);
+}
+
+.hero-foot-inner a {
+  color: var(--travertine);
+  text-decoration: none;
+  border-bottom: 1px solid var(--stone-line);
+}
+
+.hero-foot-inner a:hover {
+  color: var(--oxide-bright);
+  border-color: var(--oxide-bright);
+}
+
+@media (max-width: 640px) {
+  .hero-foot-inner { font-size: 0.72rem; }
+}
+
+/* ---------------------------------------------------------------
+   What is Stone Union
+   --------------------------------------------------------------- */
+.venn-wrap {
+  margin: clamp(3rem, 7vw, 5rem) 0;
+}
+
+.why-different {
+  max-width: 68ch;
+}
+
+/* ---------------------------------------------------------------
+   Market
+   --------------------------------------------------------------- */
+.market {
+  background: var(--basalt-900);
+  border-top: 1px solid var(--stone-line-soft);
+  border-bottom: 1px solid var(--stone-line-soft);
+  background-image: url("/images/crack-texture.jpg");
+  background-repeat: no-repeat;
+  background-position: right -80px top 40px;
+  background-size: 320px auto;
+  background-blend-mode: luminosity;
+}
+
+.market-grid {
+  margin-top: clamp(2.5rem, 6vw, 4rem);
+}
+
+.market-col {
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+}
+
+.market-col-title {
+  font-size: 1.4rem;
+  font-weight: 460;
+}
+
+.market-col p.dim {
+  font-size: 0.98rem;
+  line-height: 1.65;
+}
+
+.market-stat {
+  margin-top: 0.6rem;
+  padding-top: 1.1rem;
+  border-top: 1px solid var(--stone-line);
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.market-stat .dim {
+  font-size: 0.85rem;
+}
+
+.market-banner {
+  margin-top: clamp(3rem, 6vw, 4.5rem);
+  display: flex;
+  align-items: center;
+  gap: clamp(1.5rem, 4vw, 3rem);
+  flex-wrap: wrap;
+}
+
+.market-banner .mono-stat {
+  flex-shrink: 0;
+}
+
+.market-banner p {
+  font-size: 0.98rem;
+  max-width: 60ch;
+}
+
+.chalk-text {
+  color: var(--chalk);
+  font-weight: 600;
+  font-style: normal;
+}
+
+@media (max-width: 640px) {
+  .market {
+    background-image: none;
+  }
+}
+
+/* ---------------------------------------------------------------
+   Program
+   --------------------------------------------------------------- */
+.program-layout {
+  display: grid;
+  grid-template-columns: 0.85fr 1.15fr;
+  gap: clamp(2.5rem, 6vw, 5rem);
+  align-items: start;
+}
+
+.program-media img {
+  width: 100%;
+  border: 1px solid var(--stone-line);
+}
+
+.program-media figcaption {
+  margin-top: 0.75rem;
+  font-size: 0.82rem;
+}
+
+.program-list {
+  margin-top: clamp(2rem, 4vw, 3rem);
+  display: flex;
+  flex-direction: column;
+  gap: 2.1rem;
+}
+
+.program-item {
+  display: grid;
+  grid-template-columns: 3rem 1fr;
+  gap: 1rem;
+  padding-top: 1.6rem;
+  border-top: 1px solid var(--stone-line-soft);
+}
+
+.program-item:first-child {
+  border-top: none;
+  padding-top: 0;
+}
+
+.program-num {
+  font-size: 1.3rem;
+  color: var(--oxide-dim);
+}
+
+.program-item-title {
+  font-size: 1.35rem;
+  font-weight: 460;
+  margin-bottom: 0.6rem;
+}
+
+.program-item ul {
+  margin: 0;
+  padding-left: 1.1rem;
+  color: var(--travertine-dim);
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.program-item li {
+  line-height: 1.55;
+}
+
+.program-item li::marker {
+  color: var(--oxide);
+}
+
+@media (max-width: 860px) {
+  .program-layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ---------------------------------------------------------------
+   Third space
+   --------------------------------------------------------------- */
+.third-space {
+  background: var(--basalt-900);
+}
+
+.third-space-media {
+  position: relative;
+  height: clamp(360px, 62vh, 640px);
+  display: flex;
+  align-items: flex-end;
+}
+
+.third-space-media img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: grayscale(0.15);
+}
+
+.third-space-caption {
+  position: relative;
+  padding-bottom: 3rem;
+}
+
+.third-space-caption .headline {
+  max-width: 22ch;
+}
+
+.third-space-body {
+  padding-top: clamp(3rem, 7vw, 4.5rem);
+}
+
+.third-space-figure img {
+  width: 100%;
+  border: 1px solid var(--stone-line);
+  filter: grayscale(1) contrast(1.05);
+}
+
+.third-space-figure figcaption {
+  margin-top: 0.75rem;
+  font-size: 0.82rem;
+}
+
+/* ---------------------------------------------------------------
+   Gallery
+   --------------------------------------------------------------- */
+.gallery-layout {
+  grid-template-columns: 1.15fr 0.75fr;
+}
+
+.gallery-media img {
+  filter: grayscale(1) contrast(1.05);
+}
+
+.tag-row {
+  margin-top: 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+@media (max-width: 860px) {
+  .gallery-layout {
+    grid-template-columns: 1fr;
+  }
+  .gallery-media {
+    max-width: 320px;
+  }
+}
+
+/* ---------------------------------------------------------------
+   Studio
+   --------------------------------------------------------------- */
+.studio {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 90vh;
+  background: var(--basalt-900);
+  border-top: 1px solid var(--stone-line-soft);
+  border-bottom: 1px solid var(--stone-line-soft);
+}
+
+.studio-media {
+  position: relative;
+  min-height: 340px;
+}
+
+.studio-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: grayscale(0.4) brightness(0.85) contrast(1.1);
+}
+
+.studio-text {
+  padding: clamp(3rem, 7vw, 6rem) clamp(1.5rem, 5vw, 4.5rem);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.studio-list {
+  margin: 1.6rem 0 0;
+  padding-left: 1.1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  color: var(--travertine);
+  max-width: 44ch;
+}
+
+.studio-list li::marker {
+  color: var(--oxide);
+}
+
+.studio-close {
+  margin-top: 2rem;
+  font-size: 1.15rem;
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 420;
+  max-width: 32ch;
+}
+
+@media (max-width: 860px) {
+  .studio {
+    grid-template-columns: 1fr;
+  }
+  .studio-media {
+    min-height: 320px;
+    order: -1;
+  }
+}
+
+/* ---------------------------------------------------------------
+   Operations
+   --------------------------------------------------------------- */
+.ops-grid {
+  margin-top: clamp(2.5rem, 5vw, 4rem);
+  align-items: stretch;
+}
+
+.ops-card {
+  display: flex;
+  flex-direction: column;
+}
+
+.ops-icon {
+  width: 52px;
+  height: auto;
+  mix-blend-mode: screen;
+  opacity: 0.9;
+  margin-bottom: 1.2rem;
+}
+
+.ops-title {
+  font-size: 1.15rem;
+  font-weight: 460;
+  margin-bottom: 0.9rem;
+}
+
+.ops-card ul {
+  margin: 0;
+  padding-left: 1.1rem;
+  color: var(--travertine-dim);
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+  font-size: 0.92rem;
+  line-height: 1.55;
+}
+
+.ops-card li::marker {
+  color: var(--oxide);
+}
+
+/* ---------------------------------------------------------------
+   Sustainability
+   --------------------------------------------------------------- */
+.sustainability {
+  background: var(--basalt-900);
+  border-top: 1px solid var(--stone-line-soft);
+  border-bottom: 1px solid var(--stone-line-soft);
+}
+
+.sustain-grid {
+  margin-top: clamp(2.5rem, 5vw, 4rem);
+}
+
+.sustain-list {
+  margin: 1.3rem 0 0;
+  padding-left: 1.1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  font-size: 0.95rem;
+  line-height: 1.55;
+}
+
+.sustain-list li::marker {
+  color: var(--oxide);
+}
+
+.sustain-figure {
+  margin: clamp(3rem, 6vw, 4.5rem) auto 0;
+  max-width: 520px;
+}
+
+.sustain-figure img {
+  width: 100%;
+  mix-blend-mode: screen;
+}
+
+.sustain-figure figcaption {
+  text-align: center;
+  margin-top: 0.6rem;
+  font-size: 0.82rem;
+}
+
+/* ---------------------------------------------------------------
+   Concept gallery
+   --------------------------------------------------------------- */
+.concept-grid {
+  margin-top: clamp(2.5rem, 5vw, 4rem);
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 1.25rem;
+}
+
+.concept-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border: 1px solid var(--stone-line);
+  filter: grayscale(0.2);
+}
+
+.concept-caption {
+  margin-top: 0.6rem;
+  font-size: 0.8rem;
+}
+
+@media (max-width: 780px) {
+  .concept-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ---------------------------------------------------------------
+   Team
+   --------------------------------------------------------------- */
+.team {
+  background: var(--basalt-900);
+  border-top: 1px solid var(--stone-line-soft);
+}
+
+.founder-block {
+  margin-top: clamp(2.5rem, 6vw, 4rem);
+  display: grid;
+  grid-template-columns: 0.65fr 1.35fr;
+  gap: clamp(2rem, 5vw, 3.5rem);
+  align-items: start;
+}
+
+.founder-photo img {
+  width: 100%;
+  border: 1px solid var(--stone-line);
+  filter: grayscale(1) contrast(1.05);
+}
+
+.founder-name {
+  font-size: 1.6rem;
+  font-weight: 460;
+  margin-bottom: 1.1rem;
+}
+
+.founder-role {
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  font-style: normal;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-weight: 600;
+}
+
+.founder-bio p {
+  margin-bottom: 1rem;
+  color: var(--travertine);
+  font-size: 0.98rem;
+  line-height: 1.65;
+}
+
+.founder-bio p:last-child {
+  margin-bottom: 0;
+}
+
+.team-cols {
+  margin-top: clamp(3rem, 6vw, 4.5rem);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(2rem, 5vw, 4rem);
+  padding-top: clamp(2rem, 4vw, 3rem);
+  border-top: 1px solid var(--stone-line-soft);
+}
+
+.people-list {
+  margin: 1.2rem 0 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  font-size: 0.94rem;
+}
+
+.team-note {
+  max-width: 62ch;
+  margin-top: 2rem;
+  font-size: 0.92rem;
+}
+
+.delivery-grid {
+  margin-top: clamp(2.5rem, 5vw, 3.5rem);
+}
+
+.delivery-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.delivery-org {
+  font-size: 1.25rem;
+  font-weight: 460;
+}
+
+.delivery-card ul {
+  margin: 0.4rem 0 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  font-size: 0.9rem;
+}
+
+@media (max-width: 780px) {
+  .founder-block, .team-cols {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ---------------------------------------------------------------
+   CTA
+   --------------------------------------------------------------- */
+.cta-section {
+  background:
+    radial-gradient(ellipse at 50% 0%, rgba(193, 96, 58, 0.08), transparent 60%),
+    var(--basalt-950);
+}
+
+.cta-plaque {
+  max-width: 720px;
+  margin: 0 auto;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.cta-mark {
+  width: 64px;
+  height: auto;
+  mix-blend-mode: screen;
+  margin-bottom: 1.5rem;
+  opacity: 0.9;
+}
+
+.cta-headline {
+  max-width: 16ch;
+  margin: 0 auto;
+}
+
+.cta-lede {
+  margin: 1.4rem auto 0;
+  text-align: center;
+}
+
+.cta-actions {
+  margin-top: 2.2rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+}
+
+/* ---------------------------------------------------------------
+   Footer
+   --------------------------------------------------------------- */
+.footer {
+  border-top: 1px solid var(--stone-line-soft);
+  padding: 2rem 0;
+}
+
+.footer-inner {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0.5rem;
+  font-size: 0.78rem;
+  letter-spacing: 0.02em;
+}
