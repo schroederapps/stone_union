@@ -77,19 +77,11 @@ body::before {
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.22em;
-  color: var(--oxide-bright);
   display: inline-flex;
   align-items: center;
   gap: 0.6em;
 }
 
-.eyebrow::before {
-  content: "";
-  width: 1.6em;
-  height: 1px;
-  background: var(--oxide-bright);
-  display: inline-block;
-}
 
 .tag {
   display: inline-block;
@@ -174,7 +166,6 @@ body::before {
 .coming-soon-title em {
   font-style: italic;
   font-weight: 340;
-  color: var(--oxide-bright);
 }
 
 .coming-soon-tag {
